@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React from 'react'
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+} from "react-router-dom";
+import { Redirect } from 'react-router';
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import { useSelector } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(){
+	const SignedIn = useSelector(state =>state.authenticationReducer.isLoggedIn);
+  	return (
+		<div>
+			<Router>
+				<Switch>
+					<Route exact path='/Sign-in' component={Login} />
+					<Route exact path='/Dashboard'>
+						{SignedIn ? (<Dashboard />) : (<Redirect from="*" to={"/Sign-in"} />)}
+					</Route>
+					<Redirect from="*" to={"/Sign-in"} />
+				</Switch>
+			</Router>
+		</div>
+	)
+
 }
-
 export default App;

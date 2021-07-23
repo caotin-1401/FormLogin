@@ -1,0 +1,22 @@
+.App2 {
+    width: 600px;
+    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px !important;
+    /* background-color: rgb(155, 219, 235)!important; */
+    padding: 30px 50px;
+  }
+.container {
+    height: 100vh;  
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+h3 {
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+}
