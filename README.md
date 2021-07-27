@@ -1,1 +1,2 @@
-npm start
+install :npm i
+run code: npm start
